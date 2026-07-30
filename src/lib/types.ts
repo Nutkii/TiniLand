@@ -4,7 +4,6 @@ export type SectionId =
   | "gallery"
   | "games"
   | "letters"
-  | "jokes"
   | "fortune"
   | "achievements"
   | "compliments"
@@ -43,12 +42,6 @@ export interface LetterData {
   title: string;
   body: string[];
   color: string;
-}
-
-export interface JokeCard {
-  id: string;
-  front: string;
-  back: string;
 }
 
 export interface AchievementData {

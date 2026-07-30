@@ -12,7 +12,6 @@ import { QuizSection } from "@/components/sections/QuizSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { GamesSection } from "@/components/sections/GamesSection";
 import { LettersSection } from "@/components/sections/LettersSection";
-import { JokesSection } from "@/components/sections/JokesSection";
 import { FortuneSection } from "@/components/sections/FortuneSection";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
 import { ComplimentSection } from "@/components/sections/ComplimentSection";
@@ -44,7 +43,6 @@ export default function Home() {
                 {section === "gallery" && <GallerySection key="gallery" />}
                 {section === "games" && <GamesSection key="games" />}
                 {section === "letters" && <LettersSection key="letters" />}
-                {section === "jokes" && <JokesSection key="jokes" />}
                 {section === "fortune" && <FortuneSection key="fortune" />}
                 {section === "achievements" && <AchievementsSection key="achievements" />}
                 {section === "compliments" && <ComplimentSection key="compliments" />}

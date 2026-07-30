@@ -7,16 +7,15 @@ import { FORTUNES } from "@/lib/data";
 
 export function FortuneSection() {
   const [fortune, setFortune] = useState<string | null>(null);
-  const [spinning, setSpinning] = useState(false);
+  const [rotation, setRotation] = useState(0);
   const [key, setKey] = useState(0);
 
   function reveal() {
-    setSpinning(true);
+    setRotation((r) => r + 360);
     setFortune(null);
     window.setTimeout(() => {
       const pick = FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
       setFortune(pick);
-      setSpinning(false);
       setKey((k) => k + 1);
     }, 1100);
   }
@@ -46,7 +45,7 @@ export function FortuneSection() {
         />
         <motion.div
           className="relative flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-white/70 via-lavender-200/60 to-lavender-400/60 shadow-[0_0_50px_rgba(169,123,255,0.7)] backdrop-blur-md"
-          animate={spinning ? { rotate: 360 } : {}}
+          animate={{ rotate: rotation }}
           transition={{ duration: 1.1, ease: "easeInOut" }}
         >
           <span className="text-5xl">🔮</span>

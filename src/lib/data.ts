@@ -1,7 +1,6 @@
 import {
   AchievementData,
   GalleryPhoto,
-  JokeCard,
   LetterData,
   NavItem,
   QuizQuestion,
@@ -13,7 +12,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "gallery", label: "Memories", emoji: "🖼️" },
   { id: "games", label: "Mini Games", emoji: "🎮" },
   { id: "letters", label: "Letters", emoji: "💌" },
-  { id: "jokes", label: "Inside Jokes", emoji: "😂" },
   { id: "fortune", label: "Fortune", emoji: "🔮" },
   { id: "achievements", label: "Achievements", emoji: "🏆" },
   { id: "compliments", label: "Compliments", emoji: "✨" },
@@ -136,15 +134,6 @@ export const LETTERS: LetterData[] = [
   },
 ];
 
-export const JOKE_CARDS: JokeCard[] = [
-  { id: "j1", front: "The Broccoli Incident", back: "We do not speak of the broccoli. Ever. Especially not near Tini." },
-  { id: "j2", front: "That One Text at 3am", back: "\"are you awake\" — followed immediately by a 45 minute essay." },
-  { id: "j3", front: "The Nap That Broke Records", back: "Scheduled 20 minute nap. Actual duration: 4 hours. No apologies given." },
-  { id: "j4", front: "The Great Drama Detection", back: "Tini sensed drama from three rooms away before anyone said a word." },
-  { id: "j5", front: "\"I'm not that dramatic\"", back: "Statement immediately followed by the most dramatic reaction in recorded history." },
-  { id: "j6", front: "The Missing Left Sock", back: "Still missing. Presumed to have joined the Kingdom of Lost Things." },
-];
-
 export const FORTUNES: string[] = [
   "This year, chaos will follow you — but so will incredible luck.",
   "A questionable snack decision will somehow become legendary.",
@@ -167,7 +156,6 @@ export const ACHIEVEMENTS: AchievementData[] = [
   { id: "a4", title: "Professional Sleeper", description: "Achieved legendary status in competitive napping.", icon: "😴", rarity: "common" },
   { id: "a5", title: "Chaos Coordinator", description: "Somehow makes chaos look organized.", icon: "🌀", rarity: "epic" },
   { id: "a6", title: "Snack Whisperer", description: "Can locate snacks in any building, blindfolded.", icon: "🍿", rarity: "common" },
-  { id: "a7", title: "Meme Historian", description: "Remembers every meme since 2015 in perfect detail.", icon: "📚", rarity: "rare" },
   { id: "a8", title: "Unstoppable Vibes", description: "Mood cannot be lowered by mortal means.", icon: "🔥", rarity: "legendary" },
 ];
 

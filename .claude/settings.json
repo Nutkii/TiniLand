@@ -8,7 +8,15 @@
       "PowerShell($g = Get-Command gh -ErrorAction SilentlyContinue; if \\($g\\) { \"gh: $\\($g.Source\\)\"; gh auth status } else { \"gh not installed\" })",
       "PowerShell(Set-Location \"d:\\\\VibeCoding\\\\TiniLand\"; $env:GIT_TERMINAL_PROMPT = \"0\"; git push -u origin main)",
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page",
-      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3311\" -UseBasicParsing; \"status: $\\($r.StatusCode\\)\"; $h = $r.Content; \"TiniLand title present: $\\($h -match 'TiniLand'\\)\"; \"SKIP btn present: $\\($h -match 'SKIP'\\)\"; \"castle svg present: $\\($h -match 'viewBox=.0 0 400 260'\\)\"; \"intro bg present: $\\($h -match 'from-night-900'\\)\"; \"EntryGate button present: $\\($h -match 'Enter the Kingdom'\\)\")"
+      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3311\" -UseBasicParsing; \"status: $\\($r.StatusCode\\)\"; $h = $r.Content; \"TiniLand title present: $\\($h -match 'TiniLand'\\)\"; \"SKIP btn present: $\\($h -match 'SKIP'\\)\"; \"castle svg present: $\\($h -match 'viewBox=.0 0 400 260'\\)\"; \"intro bg present: $\\($h -match 'from-night-900'\\)\"; \"EntryGate button present: $\\($h -match 'Enter the Kingdom'\\)\")",
+      "PowerShell(Set-Location \"d:\\\\VibeCoding\\\\TiniLand\"; $env:GIT_TERMINAL_PROMPT = \"0\"; git push origin main)",
+      "PowerShell($v = Get-Command vercel -ErrorAction SilentlyContinue; if \\($v\\) { \"vercel: $\\($v.Source\\)\"; vercel --version } else { \"vercel CLI not installed\" }; \"---token in env?---\"; if \\($env:VERCEL_TOKEN\\) { \"VERCEL_TOKEN set\" } else { \"VERCEL_TOKEN not set\" }; \"---auth file?---\"; Test-Path \"$env:APPDATA\\\\com.vercel.cli\\\\auth.json\")",
+      "PowerShell(Set-Location \"d:\\\\VibeCoding\\\\TiniLand\"; vercel whoami 2>&1 | Out-String; \"exit: $LASTEXITCODE\")",
+      "PowerShell(Set-Location \"d:\\\\VibeCoding\\\\TiniLand\"; vercel link --yes 2>&1 | Out-String; \"exit: $LASTEXITCODE\")",
+      "Bash(vercel link *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(vercel env *)",
+      "Bash(vercel deploy *)"
     ]
   }
 }

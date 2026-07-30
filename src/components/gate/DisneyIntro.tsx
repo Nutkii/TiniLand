@@ -85,7 +85,10 @@ export function DisneyIntro() {
   const total = reduceMotion ? 1600 : 6000;
 
   const end = useRef(finishIntro);
-  end.current = finishIntro;
+
+  useEffect(() => {
+    end.current = finishIntro;
+  }, [finishIntro]);
 
   useEffect(() => {
     function finish() {
@@ -115,24 +118,32 @@ export function DisneyIntro() {
     >
       <Starfield dense />
 
-      {/* glow behind the castle so the silhouette reads against the sky */}
-      <motion.div
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[70vh] w-[120vw] -translate-x-1/2 rounded-full bg-radial-fade from-lavender-500/45 via-blush-500/15 to-transparent blur-2xl"
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: reduceMotion ? 0.3 : 2.2, ease: "easeOut" }}
+      {/* glow behind the castle so the silhouette reads against the sky.
+          Positioning lives on the static wrapper: Framer Motion writes an inline
+          transform for scale/y, which would clobber a Tailwind -translate-x-1/2. */}
+      <div
+        className="pointer-events-none absolute bottom-0 left-1/2 h-[70vh] w-[120vw] -translate-x-1/2"
         aria-hidden="true"
-      />
+      >
+        <motion.div
+          className="h-full w-full rounded-full bg-radial-fade from-lavender-500/45 via-blush-500/15 to-transparent blur-2xl"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: reduceMotion ? 0.3 : 2.2, ease: "easeOut" }}
+        />
+      </div>
 
       {/* castle: slow camera push in */}
-      <motion.div
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[46vh] w-[min(820px,96vw)] -translate-x-1/2"
-        initial={{ opacity: 0, y: reduceMotion ? 0 : 60, scale: reduceMotion ? 1 : 0.92 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: reduceMotion ? 0.3 : 2.6, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
-      >
-        <CastleSilhouette />
-      </motion.div>
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[46vh] w-[min(820px,96vw)] -translate-x-1/2">
+        <motion.div
+          className="h-full w-full"
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 60, scale: reduceMotion ? 1 : 0.92 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: reduceMotion ? 0.3 : 2.6, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
+        >
+          <CastleSilhouette />
+        </motion.div>
+      </div>
 
       {!reduceMotion && (
         <>
