@@ -19,7 +19,12 @@
       "Bash(vercel deploy *)",
       "Bash(npm run dev > /tmp/tiniland-dev.log 2>&1 & *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3311)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(find /c/Users/user/AppData/Local/Temp -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" 2>/dev/null | grep -i claude | head -30)",
+      "Read(//c/Users/user/AppData/Local/Temp/**)",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__get_console_message"
     ],
     "additionalDirectories": [
       "\\tmp"

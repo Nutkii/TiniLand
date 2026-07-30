@@ -73,15 +73,17 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 ];
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
-  { id: "p1", emoji: "🎉", gradient: "from-blush-200 to-lavender-200", caption: "The Birthday Queen Arrives", memory: "That one entrance that stopped the whole room." },
-  { id: "p2", emoji: "😂", gradient: "from-gold-200 to-blush-200", caption: "Laughing at 1am", memory: "We do not remember what was funny. We just remember laughing until it hurt." },
-  { id: "p3", emoji: "🍰", gradient: "from-lavender-200 to-gold-200", caption: "Cake Incident #1", memory: "Frosting went... everywhere. No regrets." },
-  { id: "p4", emoji: "🌙", gradient: "from-blush-100 to-lavender-300", caption: "3am Deep Talks", memory: "Solved all of life's problems. Forgot them by morning." },
-  { id: "p5", emoji: "👑", gradient: "from-gold-100 to-gold-300", caption: "Coronation Day", memory: "The day Tini was officially declared Queen. By law now." },
-  { id: "p6", emoji: "🦋", gradient: "from-lavender-200 to-blush-300", caption: "Main Character Moment", memory: "The lighting was perfect. The vibes were immaculate." },
-  { id: "p7", emoji: "🎊", gradient: "from-blush-200 to-gold-200", caption: "Confetti Chaos", memory: "We are STILL finding confetti in random places." },
-  { id: "p8", emoji: "💃", gradient: "from-lavender-300 to-blush-200", caption: "Dance Floor Legend", memory: "Nobody could keep up. Nobody tried after a while." },
-  { id: "p9", emoji: "📸", gradient: "from-gold-200 to-lavender-200", caption: "100 Takes, One Winner", memory: "Took 100 photos for one good one. Worth it." },
+  { id: "p1", src: "/photos/ski-lights.jpg", alt: "Group photo by a glowing light-up reindeer", gradient: "from-blush-200 to-lavender-200", caption: "Reindeer Squad", memory: "Ski trip, questionable ski suits, immaculate lighting." },
+  { id: "p2", src: "/photos/black-cat.jpg", gradient: "from-gold-200 to-blush-200", alt: "Black cat curled up on a chair", caption: "The Judge", memory: "Rates every life decision. Currently unimpressed." },
+  { id: "p3", src: "/photos/yorkie-pajamas.jpg", gradient: "from-lavender-200 to-gold-200", alt: "Yorkie wearing pajamas", caption: "Best Dressed", memory: "More fashion sense than the rest of us combined." },
+  { id: "p4", src: "/photos/panda-hug.jpg", gradient: "from-blush-100 to-lavender-300", alt: "Hugging a giant panda plush in a toy store", caption: "Emotional Support Panda", memory: "Acquired on sight. No regrets." },
+  { id: "p5", src: "/photos/baby-yoda-ears.jpg", gradient: "from-gold-100 to-gold-300", alt: "Wearing Baby Yoda ears headband at a desk", caption: "This Is The Way", memory: "Peak productivity look, unmatched energy." },
+  { id: "p6", src: "/photos/bamboo-forest.jpg", gradient: "from-lavender-200 to-blush-300", alt: "Hugging a bamboo stalk in a bamboo forest", caption: "Bamboo Bestie", memory: "Ancient tradition: hug the tallest bamboo you find." },
+  { id: "p7", src: "/photos/fitting-room.jpg", gradient: "from-blush-200 to-gold-200", alt: "Trying on a sparkly outfit in a fitting room mirror", caption: "Fitting Room Runway", memory: "Tried on the whole store. Bought half of it." },
+  { id: "p8", src: "/photos/misty-mountain.jpg", gradient: "from-lavender-300 to-blush-200", alt: "Standing on a foggy mountain ridge", caption: "Main Character in the Clouds", memory: "The fog rolled in right on cue." },
+  { id: "p9", src: "/photos/graduation.jpg", gradient: "from-gold-200 to-lavender-200", alt: "Holding a graduation award in cap and gown", caption: "Officially Certified", memory: "Cue and diploma in hand. Legendary status confirmed." },
+  { id: "p10", src: "/photos/boat-friends.jpg", gradient: "from-blush-200 to-lavender-300", alt: "Four friends sitting on the bow of a boat", caption: "Boat Day", memory: "Matching pastel outfits, zero coordination involved." },
+  { id: "p11", src: "/photos/christmas-photobooth.jpg", gradient: "from-gold-100 to-blush-200", alt: "Friends laughing together wearing a Santa hat", caption: "Santa Hat Chaos", memory: "Fairy lights, one Santa hat, way too much laughing." },
 ];
 
 export const LETTERS: LetterData[] = [

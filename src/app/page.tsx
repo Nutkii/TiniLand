@@ -7,6 +7,7 @@ import { EntryGate } from "@/components/gate/EntryGate";
 import { NavBar } from "@/components/nav/NavBar";
 import { Starfield } from "@/components/effects/Starfield";
 import { FloatingAmbience } from "@/components/effects/FloatingAmbience";
+import { BackgroundMusic } from "@/components/effects/BackgroundMusic";
 import { HomeSection } from "@/components/sections/HomeSection";
 import { QuizSection } from "@/components/sections/QuizSection";
 import { GallerySection } from "@/components/sections/GallerySection";
@@ -33,6 +34,7 @@ export default function Home() {
         <div className="relative min-h-screen">
           {(darkMode || nightMode) && <Starfield dense={nightMode} />}
           <FloatingAmbience count={10} />
+          <BackgroundMusic />
 
           <div className="relative z-10">
             <NavBar />

@@ -30,7 +30,8 @@ export interface QuizQuestion {
 
 export interface GalleryPhoto {
   id: string;
-  emoji: string;
+  src: string;
+  alt: string;
   gradient: string;
   caption: string;
   memory: string;
