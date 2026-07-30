@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Castle } from "./Castle";
 import { Balloon } from "./Balloon";
+import { CakeCandles } from "./CakeCandles";
 import { FloatingAmbience } from "@/components/effects/FloatingAmbience";
 import { useSite } from "@/components/providers/SiteProvider";
 
@@ -18,12 +19,13 @@ const BALLOONS = [
 export function EntryGate() {
   const { enterKingdom } = useSite();
   const [opening, setOpening] = useState(false);
+  const [showCake, setShowCake] = useState(false);
 
   function handleEnter() {
     if (opening) return;
     setOpening(true);
     window.setTimeout(() => {
-      enterKingdom();
+      setShowCake(true);
     }, 1900);
   }
 
@@ -84,7 +86,7 @@ export function EntryGate() {
         </motion.button>
       )}
 
-      {opening && (
+      {opening && !showCake && (
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -94,6 +96,12 @@ export function EntryGate() {
           The gates are opening...
         </motion.p>
       )}
+
+      <AnimatePresence>
+        {showCake && (
+          <CakeCandles key="cake" onComplete={enterKingdom} />
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
