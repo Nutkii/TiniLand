@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git rev-parse --show-toplevel; \"---files in repo---\"; git ls-files | Select-Object -First 20; \"---count---\"; \\(git ls-files | Measure-Object -Line\\).Lines)",
+      "PowerShell(\"---outer commit tree---\")",
+      "PowerShell(\"---TiniLand has .git?---\")",
+      "PowerShell(\"---gitignore---\")",
+      "PowerShell($g = Get-Command gh -ErrorAction SilentlyContinue; if \\($g\\) { \"gh: $\\($g.Source\\)\"; gh auth status } else { \"gh not installed\" })"
+    ]
+  }
+}
