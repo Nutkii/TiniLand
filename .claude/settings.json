@@ -16,7 +16,13 @@
       "Bash(vercel link *)",
       "Bash(echo \"exit: $?\")",
       "Bash(vercel env *)",
-      "Bash(vercel deploy *)"
+      "Bash(vercel deploy *)",
+      "Bash(npm run dev > /tmp/tiniland-dev.log 2>&1 & *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3311)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }
