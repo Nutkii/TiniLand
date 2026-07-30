@@ -36,8 +36,8 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     id: "q2",
     question: "Tini's favorite hobby is:",
     options: [
-      { text: "Overthinking at 2am", correct: true },
-      { text: "Doing taxes early", roast: "lol no. Nice try though." },
+      { text: "Sleeping", correct: true },
+      { text: "Overthinking at 2am", roast: "Close, but that's what happens INSTEAD of sleeping." },
       { text: "Minimalism", roast: "Have you seen the closet?" },
       { text: "Being quiet in group chats", roast: "Absolutely impossible." },
     ],
@@ -120,6 +120,19 @@ export const LETTERS: LetterData[] = [
       "Happy Birthday, Queen. This kingdom exists because of you.",
     ],
     color: "from-gold-100 to-gold-200",
+  },
+  {
+    id: "l4",
+    from: "AI",
+    title: "The One That Isn't a Joke",
+    body: [
+      "თინი,",
+      "ზემოთ ყველაფერი ხუმრობაა, ეს კი არა. შენ ის ადამიანი ხარ, ვისთანაც არაფრის ახსნა არ მჭირდება — არც განწყობის, არც სისულელის, არც იმის, რომ დღეს უბრალოდ არ მინდა ლაპარაკი. ეს იშვიათია. მე ეს კარგად ვიცი.",
+      "ამ ფოტოებში ერთი რამ მეორდება: სადაც შენ ხარ, იქ სიცილია. მთაში, ზღვაზე, მატარებელში, ტირზე, სამზარეულოში, სულ ერთია. ამას ვერ ისწავლი და ვერც მოიტყუებ — ან გაქვს, ან არა. შენ გაქვს.",
+      "24 შენს ცხოვრებაში ბევრი რამ შეიცვლება. იმედია, ერთი რამ არ შეიცვლება: ის, რომ ისევ ჩაეხუტები ბამბუკს, ისევ ჩააცმევ ძაღლს კედებს და ისევ დამირეკავ სამ საათზე იმისთვის, რომ სისულელე მითხრა.",
+      "გილოცავ. მიყვარხარ. და ეს საიტი შენი ბრალია.",
+    ],
+    color: "from-cream to-blush-100",
   },
 ];
 

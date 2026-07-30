@@ -2,6 +2,7 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useSite } from "@/components/providers/SiteProvider";
+import { DisneyIntro } from "@/components/gate/DisneyIntro";
 import { EntryGate } from "@/components/gate/EntryGate";
 import { NavBar } from "@/components/nav/NavBar";
 import { Starfield } from "@/components/effects/Starfield";
@@ -19,11 +20,15 @@ import { MusicSection } from "@/components/sections/MusicSection";
 import { FinalSurpriseSection } from "@/components/sections/FinalSurpriseSection";
 
 export default function Home() {
-  const { entered, section, darkMode, nightMode } = useSite();
+  const { introDone, entered, section, darkMode, nightMode } = useSite();
 
   return (
     <>
-      <AnimatePresence>{!entered && <EntryGate key="gate" />}</AnimatePresence>
+      <AnimatePresence>{!introDone && <DisneyIntro key="intro" />}</AnimatePresence>
+
+      <AnimatePresence>
+        {introDone && !entered && <EntryGate key="gate" />}
+      </AnimatePresence>
 
       {entered && (
         <div className="relative min-h-screen">

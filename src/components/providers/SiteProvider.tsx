@@ -13,6 +13,8 @@ import { fireBigConfetti } from "@/lib/confetti";
 import { SectionId } from "@/lib/types";
 
 interface SiteContextValue {
+  introDone: boolean;
+  finishIntro: () => void;
   entered: boolean;
   enterKingdom: () => void;
   section: SectionId;
@@ -37,6 +39,7 @@ function readStoredTheme(): boolean {
 }
 
 export function SiteProvider({ children }: { children: React.ReactNode }) {
+  const [introDone, setIntroDone] = useState(false);
   const [entered, setEntered] = useState(false);
   const [section, setSection] = useState<SectionId>("home");
   const [darkMode, setDarkMode] = useState(readStoredTheme);
@@ -84,6 +87,8 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<SiteContextValue>(
     () => ({
+      introDone,
+      finishIntro: () => setIntroDone(true),
       entered,
       enterKingdom: () => setEntered(true),
       section,
@@ -97,7 +102,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
       crownClicks,
       discoMode,
     }),
-    [entered, section, darkMode, nightMode, secretQueen, crownClicks, discoMode, registerCrownClick]
+    [introDone, entered, section, darkMode, nightMode, secretQueen, crownClicks, discoMode, registerCrownClick]
   );
 
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;

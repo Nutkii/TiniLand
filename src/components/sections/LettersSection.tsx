@@ -75,7 +75,7 @@ export function LettersSection() {
               exit={{ opacity: 0, scale: 0.7 }}
               transition={{ type: "spring", duration: 0.5 }}
               onClick={(e) => e.stopPropagation()}
-              className={`glass-card relative w-full max-w-lg bg-gradient-to-br ${active.color} p-8`}
+              className={`glass-card relative flex max-h-[85vh] w-full max-w-lg flex-col bg-gradient-to-br ${active.color} p-8`}
             >
               <button
                 onClick={close}
@@ -88,7 +88,7 @@ export function LettersSection() {
                 From {active.from}
               </p>
               <h3 className="mb-4 font-display text-2xl text-lavender-800">{active.title}</h3>
-              <div className="space-y-3">
+              <div className="space-y-3 overflow-y-auto pr-1">
                 {active.body.map((line, i) => (
                   <motion.p
                     key={i}
