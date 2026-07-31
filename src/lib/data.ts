@@ -73,11 +73,11 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 ];
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
-  { id: "p1", src: "/photos/ski-lights.jpg", alt: "Group photo by a glowing light-up reindeer", gradient: "from-blush-200 to-lavender-200", caption: "Reindeer Squad", memory: "Ski trip, questionable ski suits, immaculate lighting." },
-  { id: "p2", src: "/photos/black-cat.jpg", gradient: "from-gold-200 to-blush-200", alt: "Black cat curled up on a chair", caption: "The Judge", memory: "Rates every life decision. Currently unimpressed." },
-  { id: "p3", src: "/photos/yorkie-pajamas.jpg", gradient: "from-lavender-200 to-gold-200", alt: "Yorkie wearing pajamas", caption: "Best Dressed", memory: "More fashion sense than the rest of us combined." },
-  { id: "p4", src: "/photos/panda-hug.jpg", gradient: "from-blush-100 to-lavender-300", alt: "Hugging a giant panda plush in a toy store", caption: "Emotional Support Panda", memory: "Acquired on sight. No regrets." },
-  { id: "p5", src: "/photos/baby-yoda-ears.jpg", gradient: "from-gold-100 to-gold-300", alt: "Wearing Baby Yoda ears headband at a desk", caption: "This Is The Way", memory: "Peak productivity look, unmatched energy." },
+  { id: "p1", src: "/photos/ski-lights.jpg", alt: "Group photo by a glowing light-up reindeer", gradient: "from-blush-200 to-lavender-200", caption: "ვაიი?", memory: "ეს რა ხალხში მოვხვდი" },
+  { id: "p2", src: "/photos/black-cat.jpg", gradient: "from-gold-200 to-blush-200", alt: "Black cat curled up on a chair", caption: "მშვენება <33", memory: "მაგრამ თან ლეპტოპების კბეჩა უყვარს" },
+  { id: "p3", src: "/photos/yorkie-pajamas.jpg", gradient: "from-lavender-200 to-gold-200", alt: "Yorkie wearing pajamas", caption: "Best Dressed", memory: "ამისი გარდერობი გვინდა ყველას" },
+  { id: "p4", src: "/photos/panda-hug.jpg", gradient: "from-blush-100 to-lavender-300", alt: "Hugging a giant panda plush in a toy store", caption: "Emotional Support Panda", memory: "უბრალოდ ამ ემოციური საფორთს მერე ფიზიკური მჭირდებაა" },
+  { id: "p5", src: "/photos/baby-yoda-ears.jpg", gradient: "from-gold-100 to-gold-300", alt: "Wearing Baby Yoda ears headband at a desk", caption: "May the ბეისდ be with you", memory: "ბრძენი თინი" },
   { id: "p6", src: "/photos/bamboo-forest.jpg", gradient: "from-lavender-200 to-blush-300", alt: "Hugging a bamboo stalk in a bamboo forest", caption: "Bamboo Bestie", memory: "Ancient tradition: hug the tallest bamboo you find." },
   { id: "p7", src: "/photos/fitting-room.jpg", gradient: "from-blush-200 to-gold-200", alt: "Trying on a sparkly outfit in a fitting room mirror", caption: "Fitting Room Runway", memory: "Tried on the whole store. Bought half of it." },
   { id: "p8", src: "/photos/misty-mountain.jpg", gradient: "from-lavender-300 to-blush-200", alt: "Standing on a foggy mountain ridge", caption: "Main Character in the Clouds", memory: "The fog rolled in right on cue." },
