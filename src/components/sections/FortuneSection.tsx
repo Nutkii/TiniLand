@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 import { SectionShell } from "./SectionShell";
 import { FORTUNES } from "@/lib/data";
+import { useEscapeKey } from "@/lib/useEscapeKey";
 
 const SEGMENT_COLORS = ["#ffc9dd", "#dcc9ff", "#ffe58a"];
 const SIZE = 300;
@@ -35,6 +37,8 @@ export function FortuneSection() {
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [key, setKey] = useState(0);
+  const close = useCallback(() => setFortune(null), []);
+  useEscapeKey(fortune !== null, close);
 
   function reveal() {
     if (spinning) return;
@@ -114,17 +118,37 @@ export function FortuneSection() {
         {spinning ? "Spinning…" : "Spin the Wheel"}
       </motion.button>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {fortune && (
           <motion.div
             key={key}
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.9 }}
-            transition={{ type: "spring", duration: 0.6 }}
-            className="glass-card max-w-md p-6 text-center font-display text-lg text-lavender-700 dark:text-lavender-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-night-900/70 p-6 backdrop-blur-sm"
+            onClick={close}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Your fortune"
           >
-            {fortune}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 30 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              onClick={(e) => e.stopPropagation()}
+              className="glass-card relative w-full max-w-md p-8 text-center"
+            >
+              <button
+                onClick={close}
+                aria-label="Close"
+                className="absolute right-4 top-4 rounded-full bg-white/70 p-1.5 text-lavender-700 hover:bg-white"
+              >
+                <X size={18} />
+              </button>
+              <p className="mb-3 text-4xl">🔮</p>
+              <p className="font-display text-lg text-lavender-800">{fortune}</p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

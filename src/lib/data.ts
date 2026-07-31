@@ -87,40 +87,6 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
 
 export const LETTERS: LetterData[] = [
   {
-    id: "l1",
-    from: "Your Best Friend",
-    title: "For the Chaos Queen",
-    body: [
-      "Happy Birthday to the most chaotic, most iconic person I know.",
-      "Every memory with you turned into a story worth telling twice.",
-      "Thank you for the 2am voice notes and the unstoppable energy.",
-      "Here's to another year of being unforgettable.",
-    ],
-    color: "from-blush-100 to-blush-200",
-  },
-  {
-    id: "l2",
-    from: "The Group Chat",
-    title: "An Official Statement",
-    body: [
-      "We, the group chat, hereby declare you certified main character.",
-      "Your drama radar is legendary and your laugh is contagious.",
-      "May your year be filled with plot twists you actually enjoy.",
-    ],
-    color: "from-lavender-100 to-lavender-200",
-  },
-  {
-    id: "l3",
-    from: "Someone Who Adores You",
-    title: "A Little Secret",
-    body: [
-      "Not everyone gets to know someone as bright as you.",
-      "Stay exactly this loud, this funny, this you.",
-      "Happy Birthday, Queen. This kingdom exists because of you.",
-    ],
-    color: "from-gold-100 to-gold-200",
-  },
-  {
     id: "l4",
     from: "AI",
     title: "The One That Isn't a Joke",
