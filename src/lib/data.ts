@@ -11,10 +11,10 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "quiz", label: "Know Yourself", emoji: "🧠" },
   { id: "gallery", label: "Memories", emoji: "🖼️" },
   { id: "games", label: "Mini Games", emoji: "🎮" },
-  { id: "letters", label: "Letters", emoji: "💌" },
   { id: "fortune", label: "Fortune", emoji: "🔮" },
   { id: "achievements", label: "Achievements", emoji: "🏆" },
   { id: "compliments", label: "Compliments", emoji: "✨" },
+  { id: "letters", label: "Letters", emoji: "💌" },
   { id: "finale", label: "Finale", emoji: "🎂" },
 ];
 
@@ -128,16 +128,17 @@ export const ACHIEVEMENTS: AchievementData[] = [
 ];
 
 export const COMPLIMENTS: string[] = [
-  "You have the rare gift of making chaos look like a personality trait, and it works.",
-  "Your laugh is the official soundtrack of every good memory this year.",
-  "You are single-handedly keeping the group chat alive and entertained.",
-  "Somehow you glow even more when you have absolutely no idea what's going on.",
-  "You could walk into a room with zero context and still become the main character.",
-  "Your energy is proof that main characters really do exist in real life.",
-  "You make questionable decisions look like iconic life choices.",
-  "Even your naps have main character energy.",
-  "You are the human equivalent of a plot twist everyone's happy about.",
-  "Your vibe check is permanently stuck on 'immaculate'.",
-  "You turned an ordinary group of friends into a full blown fandom.",
-  "Being dramatic looks better on you than it should be legally allowed to.",
+  "მგონი მაკარენას ცეკვის შენი ვერსია ბევრად უკეთესია, ვიდრე ორიგინალი — უბრალოდ შეუძლებელია შენს ცეკვას უყურო და არ გაგეღიმოს.",
+  "შენთან კამათი საშიშია — ჯერ დამარწმუნებ, მერე კი დამრჩება შენი აზრი.",
+  "ყველაფერზე საკუთარი აზრი რომ გაქვს, ეგ ცალკე ხელოვნებაა, მაგრამ ასე სწრაფად რომ აფიქსირებ — უკვე ტალანტია.",
+  "მაკარენას შენი ვერსია იუნესკოს არამატერიალურ კულტურულ მემკვიდრეობაშია შესატანი.",
+  "მსოფლიოში ორი ტიპის მაკარენა არსებობს: არასწორი და შენი.",
+  "შენს მწვანე თვალებს საგზაო ნიშანივით სჭირდება გაფრთხილება: 'დიდხანს ყურება იწვევს ყურადღების გაფანტვას.'",
+  "აღმართზე ისეთი ტრანსფორმაცია გემართება, ევოლუციის თეორიას უკუღმა ატრიალებ — ეგრევე პირველყოფილის რეჟიმზე გადადიხარ.",
+  "კიბეებზე რომ ადიხარ, 100 წლით ბერდები და წელში ისე იხრები, თითქოს ზურგით მთელი მსოფლიოს დარდს ეზიდებოდე.",
+  "შენი აღმართზე ასვლა ცალკე პერფორმანსია — ერთდროულად 80 წლის ბებოს და პრეისტორიულ ადამიანს მახსენებ.",
+  "ქუჩაში რომ მიდიხარ, პრინცესა ხარ და აღმართი რომ იწყება — ეგრევე 'ბებიაშენის ბებიის' რეჟიმი ირთვება.",
+  "შენთან საუბარი ისეთია, ჯერ დაფიქრებასაც ვერ ვასწრებ, რომ შენი მოსწრებული პასუხი უკვე თავში მხვდება.",
+  "ხალხს შეიძლება საერთოდ დაავიწყდეს, რაზე ელაპარაკებოდი, მაგრამ შენი თვალების ფერი სამუდამოდ ემახსოვრებათ.",
+  "შენი სიცილი ისეთი რამეა, აპოკალიფსიც რომ დაიწყოს, ხალხი იფიქრებს 'არაუშავს, მაინც ყველაფერი კარგად იქნებაო'.",
 ];

@@ -38,10 +38,10 @@ export default function Home() {
                 {section === "quiz" && <QuizSection key="quiz" />}
                 {section === "gallery" && <GallerySection key="gallery" />}
                 {section === "games" && <GamesSection key="games" />}
-                {section === "letters" && <LettersSection key="letters" />}
                 {section === "fortune" && <FortuneSection key="fortune" />}
                 {section === "achievements" && <AchievementsSection key="achievements" />}
                 {section === "compliments" && <ComplimentSection key="compliments" />}
+                {section === "letters" && <LettersSection key="letters" />}
                 {section === "finale" && <FinalSurpriseSection key="finale" />}
               </AnimatePresence>
             </main>

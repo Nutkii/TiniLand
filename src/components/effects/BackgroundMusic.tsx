@@ -9,15 +9,16 @@ export function BackgroundMusic() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [muted, setMuted] = useState(true);
 
-  function postCommand(func: string) {
+  function postCommand(func: string, args: unknown[] = []) {
     iframeRef.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: "command", func, args: [] }),
+      JSON.stringify({ event: "command", func, args }),
       "*"
     );
   }
 
   function toggle() {
     if (muted) {
+      postCommand("seekTo", [0, true]);
       postCommand("unMute");
       postCommand("playVideo");
       setMuted(false);
