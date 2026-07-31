@@ -31,7 +31,7 @@ const ARC_PATH = "M 8 58 Q 50 -22 92 58";
 const SPARKLES = 26;
 
 /** The one castle silhouette shared by the wand-sweep intro and the gate opening. */
-function CastleSilhouette({ gateOpen }: { gateOpen: boolean }) {
+function CastleSilhouette({ gateOpen, showDoors }: { gateOpen: boolean; showDoors: boolean }) {
   return (
     <svg
       viewBox="0 0 400 260"
@@ -80,43 +80,53 @@ function CastleSilhouette({ gateOpen }: { gateOpen: boolean }) {
         <rect x="302" y="150" width="7" height="12" rx="3.5" />
       </g>
 
-      {/* gate: lit archway with two doors that slide open */}
-      <clipPath id="gateArch">
-        <path d="M184 260 L184 214 A16 16 0 0 1 216 214 L216 260 Z" />
-      </clipPath>
-      <g clipPath="url(#gateArch)">
-        <rect x="184" y="210" width="32" height="50" fill="#ffe58a" opacity="0.9" />
-        <motion.rect
-          y={210}
-          width={17}
-          height={50}
-          fill="currentColor"
-          initial={false}
-          animate={{ x: gateOpen ? 168 : 184 }}
-          transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
+      {/* gate: lit archway, growing two doors that slide open once the gate is ready */}
+      {showDoors ? (
+        <>
+          <clipPath id="gateArch">
+            <path d="M184 260 L184 214 A16 16 0 0 1 216 214 L216 260 Z" />
+          </clipPath>
+          <g clipPath="url(#gateArch)">
+            <rect x="184" y="210" width="32" height="50" fill="#ffe58a" opacity="0.9" />
+            <motion.rect
+              y={210}
+              width={17}
+              height={50}
+              fill="currentColor"
+              initial={false}
+              animate={{ x: gateOpen ? 168 : 184 }}
+              transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
+            />
+            <motion.rect
+              y={210}
+              width={17}
+              height={50}
+              fill="currentColor"
+              initial={false}
+              animate={{ x: gateOpen ? 216 : 199 }}
+              transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
+            />
+            {gateOpen && (
+              <motion.rect
+                x={184}
+                y={210}
+                width={32}
+                height={50}
+                fill="#fff3c4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 0.9, 0] }}
+                transition={{ duration: 1.4 }}
+              />
+            )}
+          </g>
+        </>
+      ) : (
+        <path
+          d="M184 260 L184 214 A16 16 0 0 1 216 214 L216 260 Z"
+          fill="#ffe58a"
+          opacity="0.9"
         />
-        <motion.rect
-          y={210}
-          width={17}
-          height={50}
-          fill="currentColor"
-          initial={false}
-          animate={{ x: gateOpen ? 216 : 199 }}
-          transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
-        />
-        {gateOpen && (
-          <motion.rect
-            x={184}
-            y={210}
-            width={32}
-            height={50}
-            fill="#fff3c4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.9, 0] }}
-            transition={{ duration: 1.4 }}
-          />
-        )}
-      </g>
+      )}
     </svg>
   );
 }
@@ -229,7 +239,7 @@ export function GateSequence() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: reduceMotion ? 0.3 : 2.6, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
         >
-          <CastleSilhouette gateOpen={gateOpen} />
+          <CastleSilhouette gateOpen={gateOpen} showDoors={phase !== "intro"} />
         </motion.div>
       </div>
 
