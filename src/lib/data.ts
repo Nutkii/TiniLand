@@ -78,12 +78,12 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   { id: "p3", src: "/photos/yorkie-pajamas.jpg", gradient: "from-lavender-200 to-gold-200", alt: "Yorkie wearing pajamas", caption: "Best Dressed", memory: "ამისი გარდერობი გვინდა ყველას" },
   { id: "p4", src: "/photos/panda-hug.jpg", gradient: "from-blush-100 to-lavender-300", alt: "Hugging a giant panda plush in a toy store", caption: "Emotional Support Panda", memory: "უბრალოდ ამ ემოციური საფორთს მერე ფიზიკური მჭირდებაა" },
   { id: "p5", src: "/photos/baby-yoda-ears.jpg", gradient: "from-gold-100 to-gold-300", alt: "Wearing Baby Yoda ears headband at a desk", caption: "May the ბეისდ be with you", memory: "ბრძენი თინი" },
-  { id: "p6", src: "/photos/bamboo-forest.jpg", gradient: "from-lavender-200 to-blush-300", alt: "Hugging a bamboo stalk in a bamboo forest", caption: "Bamboo Bestie", memory: "Ancient tradition: hug the tallest bamboo you find." },
-  { id: "p7", src: "/photos/fitting-room.jpg", gradient: "from-blush-200 to-gold-200", alt: "Trying on a sparkly outfit in a fitting room mirror", caption: "Fitting Room Runway", memory: "Tried on the whole store. Bought half of it." },
-  { id: "p8", src: "/photos/misty-mountain.jpg", gradient: "from-lavender-300 to-blush-200", alt: "Standing on a foggy mountain ridge", caption: "Main Character in the Clouds", memory: "The fog rolled in right on cue." },
-  { id: "p9", src: "/photos/graduation.jpg", gradient: "from-gold-200 to-lavender-200", alt: "Holding a graduation award in cap and gown", caption: "Officially Certified", memory: "Cue and diploma in hand. Legendary status confirmed." },
-  { id: "p10", src: "/photos/boat-friends.jpg", gradient: "from-blush-200 to-lavender-300", alt: "Four friends sitting on the bow of a boat", caption: "Boat Day", memory: "Matching pastel outfits, zero coordination involved." },
-  { id: "p11", src: "/photos/christmas-photobooth.jpg", gradient: "from-gold-100 to-blush-200", alt: "Friends laughing together wearing a Santa hat", caption: "Santa Hat Chaos", memory: "Fairy lights, one Santa hat, way too much laughing." },
+  { id: "p6", src: "/photos/bamboo-forest.jpg", gradient: "from-lavender-200 to-blush-300", alt: "Hugging a bamboo stalk in a bamboo forest", caption: "Bamboo Bestie", memory: "ყველგან შემიძლია ბესთის პოვნა" },
+  { id: "p7", src: "/photos/fitting-room.jpg", gradient: "from-blush-200 to-gold-200", alt: "Trying on a sparkly outfit in a fitting room mirror", caption: "მოდის აიქონი", memory: "მე როცა მარსიკმა არ მათხოვა თავისი ტანსაცმელი" },
+  { id: "p8", src: "/photos/misty-mountain.jpg", gradient: "from-lavender-300 to-blush-200", alt: "Standing on a foggy mountain ridge", caption: "ევერესტამდე გავხურდი", memory: "(ამ ნისლს ეგონა დამჩრდილავდა?)" },
+  { id: "p9", src: "/photos/graduation.jpg", gradient: "from-gold-200 to-lavender-200", alt: "Holding a graduation award in cap and gown", caption: "მაინც დავაწერე ჩემი სახელი...", memory: "(ძაან ლამაზად ვარ პროსტა, არ იყო გასამაზი)" },
+  { id: "p10", src: "/photos/boat-friends.jpg", gradient: "from-blush-200 to-lavender-300", alt: "Four friends sitting on the bow of a boat", caption: "Tini's BDay ოღონდ სხვანაირად", memory: "ა ასე უნდა ვყოფილიყავით დღეს, რო ვერ დაიქოქა ეგ ვერტმფრენი" },
+  { id: "p11", src: "/photos/christmas-photobooth.jpg", gradient: "from-gold-100 to-blush-200", alt: "Friends laughing together wearing a Santa hat", caption: "გვშია", memory: "არა ისე, კარგი ხალხია მგონი ხოო???" },
 ];
 
 export const LETTERS: LetterData[] = [
