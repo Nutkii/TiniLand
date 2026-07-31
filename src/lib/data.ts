@@ -124,6 +124,7 @@ export const ACHIEVEMENTS: AchievementData[] = [
   { id: "a5", title: "Chaos Coordinator", description: "Somehow makes chaos look organized.", icon: "🌀", rarity: "epic" },
   { id: "a6", title: "Snack Whisperer", description: "Can locate snacks in any building, blindfolded.", icon: "🍿", rarity: "common" },
   { id: "a8", title: "Unstoppable Vibes", description: "Mood cannot be lowered by mortal means.", icon: "🔥", rarity: "legendary" },
+  { id: "a9", title: "Fact Supplier", description: "Keeps everyone informed whether they asked or not.", icon: "📌", rarity: "common" },
 ];
 
 export const COMPLIMENTS: string[] = [
