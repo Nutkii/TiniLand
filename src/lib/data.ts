@@ -24,9 +24,9 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     id: "q1",
     question: "What is Tini's most powerful superpower?",
     options: [
-      { text: "Being iconic 24/7", correct: true },
       { text: "Punctuality", roast: "Cute guess. We both know that's a myth." },
       { text: "Staying calm under pressure", roast: "Have you MET Tini during drama?" },
+      { text: "Being iconic 24/7", correct: true },
       { text: "Silence", roast: "Absolutely not. Try again, comedian." },
     ],
   },
@@ -34,40 +34,40 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     id: "q2",
     question: "Tini's favorite hobby is:",
     options: [
-      { text: "Sleeping", correct: true },
       { text: "Overthinking at 2am", roast: "Close, but that's what happens INSTEAD of sleeping." },
       { text: "Minimalism", roast: "Have you seen the closet?" },
       { text: "Being quiet in group chats", roast: "Absolutely impossible." },
+      { text: "Sleeping", correct: true },
     ],
   },
   {
     id: "q3",
     question: "What best describes Tini's energy?",
     options: [
-      { text: "Sleepy chaos with main character energy", correct: true },
       { text: "Calm, zen, monk-like", roast: "We are not the same person as you're imagining." },
-      { text: "Extremely predictable", roast: "Tini is a plot twist generator." },
+      { text: "Sleepy chaos with main character energy", correct: true },
       { text: "Boring", roast: "Rude AND wrong. Try again." },
+      { text: "Extremely predictable", roast: "Tini is a plot twist generator." },
     ],
   },
   {
     id: "q4",
     question: "Tini's love language is:",
     options: [
-      { text: "Chaotic memes sent at 3am", correct: true },
-      { text: "Silence", roast: "Nope, Tini shows love LOUDLY." },
       { text: "Strict schedules", roast: "That's the opposite of Tini." },
       { text: "Formal emails", roast: "Absolutely unhinged guess." },
+      { text: "Chaotic memes sent at 3am", correct: true },
+      { text: "Silence", roast: "Nope, Tini shows love LOUDLY." },
     ],
   },
   {
     id: "q5",
     question: "The official Tini catchphrase is closest to:",
     options: [
-      { text: "\"Wait, what happened, tell me EVERYTHING\"", correct: true },
       { text: "\"I have no opinions\"", roast: "Impossible sentence for Tini to say." },
-      { text: "\"Let's not gossip\"", roast: "As if." },
       { text: "\"I'm always on time\"", roast: "The biggest lie in this quiz." },
+      { text: "\"Let's not gossip\"", roast: "As if." },
+      { text: "\"Wait, what happened, tell me EVERYTHING\"", correct: true },
     ],
   },
 ];

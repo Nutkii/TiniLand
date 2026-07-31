@@ -5,51 +5,113 @@ import { AnimatePresence, motion } from "framer-motion";
 import { SectionShell } from "./SectionShell";
 import { FORTUNES } from "@/lib/data";
 
+const SEGMENT_COLORS = ["#ffc9dd", "#dcc9ff", "#ffe58a"];
+const SIZE = 300;
+const CENTER = SIZE / 2;
+const RADIUS = 140;
+const SEGMENT_ANGLE = 360 / FORTUNES.length;
+const SPIN_MS = 4200;
+
+function polar(angleDeg: number, r: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return { x: CENTER + r * Math.cos(rad), y: CENTER + r * Math.sin(rad) };
+}
+
+function segmentPath(index: number) {
+  const start = -90 + index * SEGMENT_ANGLE;
+  const end = start + SEGMENT_ANGLE;
+  const p1 = polar(start, RADIUS);
+  const p2 = polar(end, RADIUS);
+  return `M${CENTER},${CENTER} L${p1.x},${p1.y} A${RADIUS},${RADIUS} 0 0 1 ${p2.x},${p2.y} Z`;
+}
+
+function shortLabel(text: string) {
+  const words = text.replace(/["]/g, "").split(" ");
+  return words.slice(0, 2).join(" ") + (words.length > 2 ? "…" : "");
+}
+
 export function FortuneSection() {
   const [fortune, setFortune] = useState<string | null>(null);
   const [rotation, setRotation] = useState(0);
+  const [spinning, setSpinning] = useState(false);
   const [key, setKey] = useState(0);
 
   function reveal() {
-    setRotation((r) => r + 360);
+    if (spinning) return;
+    setSpinning(true);
     setFortune(null);
+
+    const index = Math.floor(Math.random() * FORTUNES.length);
+    const mid = -90 + index * SEGMENT_ANGLE + SEGMENT_ANGLE / 2;
+    const target = (((-90 - mid) % 360) + 360) % 360;
+    const current = ((rotation % 360) + 360) % 360;
+    const diff = ((target - current) % 360 + 360) % 360;
+    const nextRotation = rotation + 5 * 360 + diff;
+    setRotation(nextRotation);
+
     window.setTimeout(() => {
-      const pick = FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
-      setFortune(pick);
+      setFortune(FORTUNES[index]);
       setKey((k) => k + 1);
-    }, 1100);
+      setSpinning(false);
+    }, SPIN_MS);
   }
 
   return (
     <SectionShell className="flex flex-col items-center">
       <h2 className="section-title mb-2 text-center">Birthday Fortune</h2>
       <p className="mb-10 text-center text-lavender-600 dark:text-lavender-100">
-        Gaze into the crystal ball for your extremely scientific fortune.
+        Spin the wheel for your extremely scientific fortune.
       </p>
+
+      <div className="relative mb-8 h-[300px] w-[300px]">
+        <div
+          className="absolute left-1/2 top-[-14px] z-10 h-0 w-0 -translate-x-1/2"
+          style={{
+            borderLeft: "14px solid transparent",
+            borderRight: "14px solid transparent",
+            borderTop: "22px solid #8f56f7",
+            filter: "drop-shadow(0 0 6px rgba(143,86,247,0.7))",
+          }}
+        />
+        <motion.svg
+          viewBox={`0 0 ${SIZE} ${SIZE}`}
+          className="h-full w-full rounded-full shadow-[0_0_60px_rgba(169,123,255,0.6)]"
+          animate={{ rotate: rotation }}
+          transition={{ duration: SPIN_MS / 1000, ease: [0.15, 0.65, 0.25, 1] }}
+        >
+          <circle cx={CENTER} cy={CENTER} r={RADIUS + 4} fill="white" opacity={0.6} />
+          {FORTUNES.map((f, i) => {
+            const mid = -90 + i * SEGMENT_ANGLE + SEGMENT_ANGLE / 2;
+            const labelPos = polar(mid, RADIUS * 0.62);
+            return (
+              <g key={i}>
+                <path d={segmentPath(i)} fill={SEGMENT_COLORS[i % SEGMENT_COLORS.length]} stroke="white" strokeWidth={2} />
+                <text
+                  x={labelPos.x}
+                  y={labelPos.y}
+                  textAnchor="middle"
+                  fontSize={9}
+                  fontWeight={600}
+                  fill="#4b2490"
+                  transform={`rotate(${Math.cos((mid * Math.PI) / 180) < 0 ? mid + 180 : mid}, ${labelPos.x}, ${labelPos.y})`}
+                >
+                  {shortLabel(f)}
+                </text>
+              </g>
+            );
+          })}
+          <circle cx={CENTER} cy={CENTER} r={22} fill="#8f56f7" stroke="white" strokeWidth={3} />
+        </motion.svg>
+      </div>
 
       <motion.button
         onClick={reveal}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="relative mb-8 flex h-48 w-48 items-center justify-center rounded-full"
-        aria-label="Reveal your fortune"
+        disabled={spinning}
+        whileHover={{ scale: spinning ? 1 : 1.05 }}
+        whileTap={{ scale: spinning ? 1 : 0.95 }}
+        className="glow-btn mb-8 disabled:opacity-60"
       >
-        <motion.div
-          className="absolute inset-0 rounded-full opacity-70 blur-xl"
-          style={{
-            background:
-              "radial-gradient(circle, #dcc9ff 0%, #a97bff 55%, #8f56f7 100%)",
-          }}
-          animate={{ opacity: [0.5, 0.9, 0.5] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-        />
-        <motion.div
-          className="relative flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-white/70 via-lavender-200/60 to-lavender-400/60 shadow-[0_0_50px_rgba(169,123,255,0.7)] backdrop-blur-md"
-          animate={{ rotate: rotation }}
-          transition={{ duration: 1.1, ease: "easeInOut" }}
-        >
-          <span className="text-5xl">🔮</span>
-        </motion.div>
+        {spinning ? "Spinning…" : "Spin the Wheel"}
       </motion.button>
 
       <AnimatePresence mode="wait">
