@@ -7,7 +7,6 @@ export type SectionId =
   | "fortune"
   | "achievements"
   | "compliments"
-  | "music"
   | "finale";
 
 export interface NavItem {

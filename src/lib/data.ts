@@ -15,7 +15,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "fortune", label: "Fortune", emoji: "🔮" },
   { id: "achievements", label: "Achievements", emoji: "🏆" },
   { id: "compliments", label: "Compliments", emoji: "✨" },
-  { id: "music", label: "Music", emoji: "🎵" },
   { id: "finale", label: "Finale", emoji: "🎂" },
 ];
 

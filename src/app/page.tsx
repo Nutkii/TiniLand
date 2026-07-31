@@ -15,7 +15,6 @@ import { LettersSection } from "@/components/sections/LettersSection";
 import { FortuneSection } from "@/components/sections/FortuneSection";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
 import { ComplimentSection } from "@/components/sections/ComplimentSection";
-import { MusicSection } from "@/components/sections/MusicSection";
 import { FinalSurpriseSection } from "@/components/sections/FinalSurpriseSection";
 
 export default function Home() {
@@ -43,7 +42,6 @@ export default function Home() {
                 {section === "fortune" && <FortuneSection key="fortune" />}
                 {section === "achievements" && <AchievementsSection key="achievements" />}
                 {section === "compliments" && <ComplimentSection key="compliments" />}
-                {section === "music" && <MusicSection key="music" />}
                 {section === "finale" && <FinalSurpriseSection key="finale" />}
               </AnimatePresence>
             </main>
