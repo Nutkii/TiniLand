@@ -1,20 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { SectionShell } from "./SectionShell";
 import { Balloon } from "@/components/gate/Balloon";
-import { Typewriter } from "@/components/effects/Typewriter";
-import { fireBigConfetti, fireFireworks } from "@/lib/confetti";
-
-const MESSAGE_LINES = [
-  "Happy Birthday Tini ❤️",
-  "Thank you for making everyone's life brighter.",
-  "Stay iconic.",
-  "Stay chaotic.",
-  "Stay our Queen.",
-  "Love you forever.",
-];
+import { fireConfetti, fireBigConfetti, fireFireworks } from "@/lib/confetti";
 
 const BALLOONS = [
   { color: "#ff7bab", left: "4%", delay: 0, duration: 8 },
@@ -25,25 +15,88 @@ const BALLOONS = [
   { color: "#f8bd2e", left: "94%", delay: 2.5, duration: 6.5 },
 ];
 
-function Cake() {
+const DODGE_RADIUS = 100;
+
+function randomSpot() {
+  // Corners only — keeps clear of the static answer button parked dead center.
+  const top = Math.random() < 0.5 ? 8 + Math.random() * 22 : 68 + Math.random() * 22;
+  const left = Math.random() < 0.5 ? 8 + Math.random() * 22 : 68 + Math.random() * 22;
+  return { top, left };
+}
+
+function VerdictQuestion() {
+  const [answered, setAnswered] = useState(false);
+  const [pos, setPos] = useState(randomSpot);
+  const [moveCount, setMoveCount] = useState(0);
+  const dodgeRef = useRef<HTMLButtonElement | null>(null);
+
+  function dodge() {
+    setPos(randomSpot());
+    setMoveCount((c) => c + 1);
+  }
+
+  useEffect(() => {
+    if (answered) return;
+
+    function handlePointerMove(e: PointerEvent) {
+      const btn = dodgeRef.current;
+      if (!btn) return;
+      const rect = btn.getBoundingClientRect();
+      const dx = e.clientX - (rect.left + rect.width / 2);
+      const dy = e.clientY - (rect.top + rect.height / 2);
+      if (Math.hypot(dx, dy) < DODGE_RADIUS) dodge();
+    }
+
+    window.addEventListener("pointermove", handlePointerMove);
+    return () => window.removeEventListener("pointermove", handlePointerMove);
+  }, [answered]);
+
+  function handleCorrect() {
+    setAnswered(true);
+    fireConfetti();
+  }
+
   return (
-    <div className="relative mx-auto flex flex-col items-center">
-      <div className="mb-1 flex gap-3">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="flex flex-col items-center">
-            <motion.div
-              className="h-4 w-1.5 rounded-full bg-gold-300"
-              animate={{ opacity: [0.6, 1, 0.6], scaleY: [1, 1.3, 1] }}
-              transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.2 }}
-              style={{ boxShadow: "0 0 12px 4px rgba(255,196,74,0.8)" }}
-            />
-            <div className="h-4 w-1 bg-lavender-300" />
-          </div>
-        ))}
-      </div>
-      <div className="h-8 w-40 rounded-t-lg bg-blush-200 shadow-inner sm:w-52" />
-      <div className="h-10 w-52 bg-lavender-200 shadow-inner sm:w-64" />
-      <div className="h-12 w-64 rounded-b-xl bg-gold-200 shadow-lg sm:w-80" />
+    <div className="glass-card z-10 mb-8 w-full max-w-lg px-6 py-8">
+      <h3 className="mb-6 font-display text-xl text-lavender-700 dark:text-lavender-50">
+        გვშია + AI, როგორ შეაფასებდით?
+      </h3>
+
+      {!answered ? (
+        <div className="relative mx-auto h-48 w-full max-w-sm">
+          <button
+            onClick={handleCorrect}
+            className="glow-btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
+            ბეისდ
+          </button>
+
+          <AnimatePresence>
+            <motion.button
+              key={moveCount}
+              ref={dodgeRef}
+              onClick={dodge}
+              onPointerEnter={dodge}
+              initial={{ opacity: 0, scale: 0.4 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.4 }}
+              transition={{ duration: 0.18 }}
+              style={{ top: `${pos.top}%`, left: `${pos.left}%` }}
+              className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-night-800 px-4 py-2 text-sm font-medium text-white shadow-lg"
+            >
+              ქრიიიიიიინჯ
+            </motion.button>
+          </AnimatePresence>
+        </div>
+      ) : (
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="font-display text-lg text-lavender-600 dark:text-lavender-100"
+        >
+          რასაკვირველია. 👑
+        </motion.p>
+      )}
     </div>
   );
 }
@@ -62,21 +115,7 @@ export function FinalSurpriseSection() {
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="z-10 mb-8"
-      >
-        <Cake />
-      </motion.div>
-
-      <div className="glass-card z-10 max-w-xl px-6 py-8">
-        <Typewriter
-          lines={MESSAGE_LINES}
-          className="space-y-2 font-display text-xl leading-relaxed text-lavender-700 dark:text-lavender-50 sm:text-2xl"
-        />
-      </div>
+      <VerdictQuestion />
     </SectionShell>
   );
 }
